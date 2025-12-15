@@ -1,79 +1,86 @@
 FitLife - App de Fitness:
 Descripción del Proyecto:
-FitLife es una aplicación Android desarrollada en Kotlin para gestionar rutinas de ejercicios. Permite a los usuarios explorar rutinas, ver detalles, marcar favoritos y recibir recordatorios de entrenamiento.
+FitLife es una aplicación Android desarrollada en Kotlin que permite a los usuarios gestionar rutinas de ejercicios de forma eficiente. La aplicación implementa las mejores prácticas de desarrollo Android moderno con una arquitectura limpia y escalable.
 
 -Características Principales:
- Navegación entre Fragmentos con Navigation Component
- RecyclerView con CardView personalizadas
- Notificaciones con canal propio y PendingIntent
- Snackbar con acción interactiva
- Toast para mensajes rápidos
- DialogFragment con callbacks personalizados
- Menú global con BottomNavigationView
- View Binding en todos los layouts
- Material Design con temas personalizados
- FloatingActionButton para acciones principales
+ - Navegación Avanzada
+Navigation Component para gestión de flujos
+BottomNavigationView con 3 secciones principales
+Deep Links para notificaciones
+Safe Args para paso de datos entre fragments
 
-Arquitectura y Estructura:
+- UI Moderna con Material Design
+CardView personalizadas para listas
+FloatingActionButton para acciones principales
+Chips para etiquetas de nivel
+Snackbar con acción interactiva ("DESHACER")
+Toast para mensajes rápidos
 
-app/
-├── src/main/java/com/example/fitlife/
-│   ├── MainActivity.kt                 # Actividad principal con NavHost
-│   ├── base/
-│   │   └── BaseActivity.kt            # Actividad base con menú (opcional)
-│   ├── fragments/
-│   │   ├── HomeFragment.kt            # Pantalla de inicio
-│   │   ├── RoutinesFragment.kt        # Lista de rutinas (RecyclerView)
-│   │   ├── RoutineDetailFragment.kt   # Detalle de rutina
-│   │   └── FavoritesFragment.kt       # Rutinas favoritas
-│   ├── adapters/
-│   │   └── RoutineAdapter.kt          # Adapter + ViewHolder
-│   ├── models/
-│   │   └── Routine.kt                 # Data class para rutinas
-│   ├── utils/
-│   │   ├── NotificationHelper.kt      # Gestión de notificaciones
-│   │   └── DataSource.kt              # Datos de ejemplo
-│   └── dialogs/
-│       └── ConfirmDialogFragment.kt   # Diálogo de confirmación
-└── res/
-    ├── layout/                        # Todos los XML de layout
-    ├── navigation/
-    │   └── nav_graph.xml              # Grafo de navegación
-    ├── menu/
-    │   └── main_menu.xml              # Menú bottom navigation
-    └── values/                        # Strings, colores, temas
+- Gestión de Datos
+ViewModel compartido entre fragments
+LiveData para actualizaciones automáticas de UI
+Repository Pattern como fuente única de verdad
+ListAdapter + DiffUtil para RecyclerView eficiente
+
+- Notificaciones Profesionales
+Notification Channel propio ("FitLife Recordatorios")
+PendingIntent que abre directamente la sección Rutinas
+Compatibilidad total con Android 13+ (permisos POST_NOTIFICATIONS)
+Deep Link personalizado: fitlife://routines
+
+ - Diálogos Personalizados
+DialogFragment reutilizable para confirmaciones
+Callbacks personalizados para manejar respuestas
+Bundle Arguments para personalizar títulos y mensajes
+
+
+
 
 Funcionalidades Detalladas:
 
-1. Pantalla de Inicio (HomeFragment)
--Saludo personalizado
--Botones de navegación principales
--Botón para enviar notificación de recordatorio
+1.  Pantalla de Inicio (HomeFragment)
+Saludo personalizado con nombre de usuario
+3 botones principales de navegación rápida
+Sistema de permisos para notificaciones (Android 13+)
+Diálogo explicativo antes de enviar notificaciones
+Feedback visual con Toast tras enviar notificación
 
-2. Lista de Rutinas (RoutinesFragment)
--RecyclerView con layout CardView
--Cada tarjeta muestra:
--Imagen del ejercicio
--Nombre de la rutina
--Duración aproximada
--Nivel de dificultad (chip)
--Icono de favorito
--Click en tarjeta → navega a detalle
+2.  Lista de Rutinas (RoutinesFragment)
+RecyclerView con 5 rutinas predefinidas
+Cada tarjeta muestra:
+Imagen del ejercicio (cargada con Glide)
+Nombre de la rutina
+Duración aproximada
+Nivel de dificultad (Principiante/Intermedio/Avanzado)
+Icono de favorito con color dinámico
+Click en tarjeta → navegación a pantalla de detalle
+LayoutManager vertical con animaciones
 
-3. Detalle de Rutina (RoutineDetailFragment)
--Imagen destacada
--Descripción completa
--Chips de duración y nivel
--Lista de pasos a seguir
--FAB para marcar como completado (muestra Snackbar)
--FAB para añadir a favoritos
+3.  Detalle de Rutina (RoutineDetailFragment)
+Imagen destacada en alta calidad
+Descripción completa del ejercicio
+Chips informativos (duración + nivel)
+Lista numerada de pasos a seguir
+Botón "Completado" que:
+Cambia visualmente (texto + color)
+Muestra Snackbar con opción "DESHACER"
+Emite Toast de confirmación
+FAB de Favoritos que:
+Muestra diálogo de confirmación
+Cambia icono y color según estado
+Actualiza automáticamente todas las pantallas
 
-4. Favoritos (FavoritesFragment)
--Lista filtrada de rutinas marcadas como favoritas
--Mismo diseño que lista principal
+4.  Favoritos (FavoritesFragment)
+Lista filtrada en tiempo real
+Mismo Adapter que RoutinesFragment (reutilización de código)
+Actualización automática al cambiar estado de favoritos
+Estado vacío con mensaje e icono descriptivo
 
-5. Notificaciones
--Canal propio "FitLife Notificaciones"
--Notificación que abre la app al hacer click
--Contenido personalizado
--Compatible con Android 8.0+
+5.  Sistema de Notificaciones
+Canal dedicado: "Recordatorios FitLife"
+Prioridad alta para mejor visibilidad
+Acción directa: tocar notificación → abre Rutinas
+Icono personalizado de la app
+Compatibilidad completa con todas las versiones de Andr
+
+
