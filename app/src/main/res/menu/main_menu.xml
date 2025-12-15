@@ -4,10 +4,12 @@
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home"
         android:title="Inicio" />
+
     <item
         android:id="@+id/routinesFragment"
         android:icon="@drawable/ic_routines"
         android:title="Rutinas" />
+
     <item
         android:id="@+id/favoritesFragment"
         android:icon="@drawable/ic_favorite"

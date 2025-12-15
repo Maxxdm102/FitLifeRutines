@@ -1,24 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- TEMA PRINCIPAL DE LA APP -->
     <style name="Theme.FitLife" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
+        <!-- COLORES DE MARCA -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_variant</item>
         <item name="colorOnPrimary">@color/white</item>
 
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary</item>
         <item name="colorSecondaryVariant">@color/secondary_variant</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <!-- Status bar color. -->
+        <!-- BARRA DE ESTADO -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 
-        <!-- Customize your theme here. -->
+        <!-- FONDO DE VENTANA -->
         <item name="android:windowBackground">@color/background</item>
     </style>
 
-    <!-- Toolbar style -->
+    <!-- ESTILO PERSONALIZADO PARA TOOLBAR -->
     <style name="ToolbarStyle" parent="Widget.AppCompat.Toolbar">
         <item name="android:background">?attr/colorPrimary</item>
         <item name="titleTextColor">@color/white</item>

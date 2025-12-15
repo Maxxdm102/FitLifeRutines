@@ -1,30 +1,25 @@
 <resources>
     <string name="app_name">FitLife</string>
 
-    <!-- Home Fragment -->
     <string name="welcome_title">¡Bienvenido a FitLife!</string>
     <string name="welcome_subtitle">Tu compañero de entrenamiento diario</string>
     <string name="btn_routines">Ver Rutinas</string>
     <string name="btn_favorites">Favoritos</string>
     <string name="btn_notify">Recordarme entrenar</string>
 
-    <!-- Detail Fragment -->
     <string name="steps_title">Pasos a seguir:</string>
     <string name="routine_completed">¡Rutina completada! +10 puntos</string>
     <string name="undo">DESHACER</string>
     <string name="added_to_favorites">Añadido a favoritos</string>
-
-    <!-- Dialog -->
+    <string name="no_favorites_message">No tienes rutinas favoritas</string>
     <string name="dialog_confirm_title">¿Añadir a favoritos?</string>
     <string name="dialog_confirm_message">¿Estás seguro de que quieres añadir esta rutina a favoritos?</string>
     <string name="dialog_confirm_yes">Sí</string>
     <string name="dialog_confirm_no">No</string>
 
-    <!-- Notification -->
     <string name="notification_title">¡Hora de entrenar!</string>
     <string name="notification_text">No te saltes tu rutina diaria. ¡Vamos!</string>
 
-    <!-- Menu -->
     <string name="menu_home">Inicio</string>
     <string name="menu_routines">Rutinas</string>
     <string name="menu_favorites">Favoritos</string>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
@@ -10,12 +11,16 @@
         android:name="com.example.fitlife.fragments.HomeFragment"
         android:label="Inicio"
         tools:layout="@layout/fragment_home">
+
         <action
             android:id="@+id/action_homeFragment_to_routinesFragment"
-            app:destination="@id/routinesFragment" />
+            app:destination="@id/routinesFragment"
+            app:popUpTo="@id/homeFragment" />
+
         <action
             android:id="@+id/action_homeFragment_to_favoritesFragment"
-            app:destination="@id/favoritesFragment" />
+            app:destination="@id/favoritesFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
 
     <fragment
@@ -23,21 +28,33 @@
         android:name="com.example.fitlife.fragments.RoutinesFragment"
         android:label="Rutinas"
         tools:layout="@layout/fragment_routines">
+
         <action
             android:id="@+id/action_routinesFragment_to_routineDetailFragment"
             app:destination="@id/routineDetailFragment" />
+
+        <deepLink app:uri="fitlife://routines" />
     </fragment>
 
     <fragment
         android:id="@+id/routineDetailFragment"
         android:name="com.example.fitlife.fragments.RoutineDetailFragment"
         android:label="Detalle"
-        tools:layout="@layout/fragment_routine_detail" />
+        tools:layout="@layout/fragment_routine_detail">
+
+        <argument
+            android:name="routineId"
+            app:argType="integer" />
+    </fragment>
 
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.fitlife.fragments.FavoritesFragment"
         android:label="Favoritos"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_favorites">
 
+        <action
+            android:id="@+id/action_favoritesFragment_to_routineDetailFragment"
+            app:destination="@id/routineDetailFragment" />
+    </fragment>
 </navigation>
